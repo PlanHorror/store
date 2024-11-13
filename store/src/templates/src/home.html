@@ -1,0 +1,277 @@
+{% include "navbar.html" %}  
+{% load crispy_forms_tags %} 
+{% block content %} 
+<!-- img /media/background1 in here -->
+ <div class="background" style="color: #F7F2EC;">
+<div class="background-image" style="width: 98.7; height: 100vh; background-image: url('/media/background1.png');background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+<div class="container-fluid py-5 text-center" style="background-color: #F7F2EC;">
+    <div class="h3 font-weight-bold text-dark mb-5">
+        Trải Nghiệm Đồ Chơi Xanh Nhà EcoSmart<br>“Học Vui, Chơi Xanh, Trí Tuệ Toàn Diện”
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-3 mb-4">
+            <div style="border-radius: 25px;" class="card border-0 shadow">
+                <img src="/media/ghepgo.png" style="border: 5px solid white;border-radius: 25px;" class="card-img-top " alt="BST Bé Ghép Gỗ">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold text-dark">BST Bé Ghép Gỗ</h5>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 mb-4">
+            <div style="border-radius: 25px;" class="card border-0 shadow">
+                <img src="/media/trituenhi.png" style="border: 5px solid white;border-radius: 25px;" class="card-img-top " alt="BST Trí Tuệ Nhí">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold text-dark">BST Trí Tuệ Nhí</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5" style="background-color: #F7F2EC;">
+        <!-- Title -->
+        <div class="text-center mb-4 ">
+            <div class="d-inline-block px-4 py-2  rounded-pill" style="min-width: 20%; border-style:solid; border-width:medium; border-color: #C9B079; background-color: #ffff;">
+                
+                <span class="me-2" style="color: #7dc9c8; font-size: 1.5rem; margin-right: 25px;">❀</span>
+                <span class="fw-bold fst-italic" style=" margin-right: 25px;font-family: 'Times New Roman', serif; font-size: 1.5rem; color: #3a2a15;font-style: italic; font-weight: bold;">BST Bé Chào Tết 2025</span>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row g-4">
+            <!-- Card 1 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card shadow" style="background-color: #F7F2EC; height: 420px; border-radius: 37px; border:3px solid white ">
+                    <div class="card-img-top d-flex justify-content-center align-items-center" style="height: 70%;">
+                        <img src="/media/teddy.png" alt="Teddy" class="img-fluid" style="max-height: 80%;">
+                    </div>
+                    <div class="card-body text-center" style="height: 30%; background-color: white; border-radius:0px 0px 37px 37px;">
+                        <h5 class="card-title text-dark fw-bold">Teddy - 10.5 Orso</h5>
+                        <p class="mb-1 text-warning">★★★★★</p>
+                        <p class="text-dark fw-bold">369.000 ₫</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card shadow" style="background-color: #F7F2EC; height: 420px; border-radius: 37px; border:3px solid white ">
+                    <div class="card-img-top d-flex justify-content-center align-items-center" style="height: 70%;">
+                        <img src="/media/trixy.png" alt="Trixy" class="img-fluid" style="max-height: 80%;">
+                    </div>
+                    <div class="card-body text-center" style="height: 30%; background-color: white; border-radius:0px 0px 37px 37px;">
+                        <h5 class="card-title text-dark fw-bold">Trixy - 8.5 Triceratops</h5>
+                        <p class="mb-1 text-warning">★★★★☆</p>
+                        <p class="text-dark fw-bold">329.000 ₫</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card shadow" style="background-color: #F7F2EC; height: 420px; border-radius: 37px; border:3px solid white ">
+                    <div class="card-img-top d-flex justify-content-center align-items-center" style="height: 70%;">
+                        <div class="card-img-top d-flex justify-content-center align-items-center" style="height: 150px;">
+                            <img src="/media/bunny.png" alt="Bunny" class="img-fluid" style="max-height: 80%;">
+                        </div>
+                    </div>
+                    <div class="card-body text-center" style="height: 30%; background-color: white; border-radius:0px 0px 37px 37px;">
+                        <h5 class="card-title text-dark fw-bold">Bunny - 10.5 Coniglio</h5>
+                        <p class="mb-1 text-warning">★★★★☆</p>
+                        <p class="text-dark fw-bold">349.000 ₫</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="col-md-3 col-sm-6">
+                <div class="card shadow border-2" style="background-color: #F7F2EC; height: 420px; border-radius: 37px; border:3px solid white ">
+                    <div class="card-img-top d-flex justify-content-center align-items-center" style="height: 70%;">
+                        <img src="/media/gigi.png" alt="Gigi" class="img-fluid" style="max-height: 80%;">
+                    </div>
+                    <div class="card-body text-center" style="height: 30%; background-color: white; border-radius:0px 0px 37px 37px;">
+                        <h5 class="card-title text-dark fw-bold">Gigi - 12.5 Giraffa</h5>
+                        <p class="mb-1 text-warning">★★★★☆</p>
+                        <p class="text-warning fw-bold">Tặng kèm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View More Button -->
+        <div class="text-center mt-4">
+            <button class="btn px-4 py-2 rounded-pill shadow" style="background-color: #BF8B70;min-width: 15%; color: white; font-weight: bold; border:2px solid white;">Xem thêm</button>
+        </div>
+</div>
+<div class="container-fluid py-5" style="background-color: #E1EDE9">
+    <!-- Section Title -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold " style="color: #29180F; font-size: 45px;">Tại Sao Quý Phụ Huynh Nên Lựa</h2>
+        <h2 class="fw-bold " style="color: #29180F; font-size: 45px;">Chọn EcoSmart</h2>
+        <br>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4 h-100">
+            <div class="card" style="border:#C9B079 solid 3px ; background-color: #ffffff; border-radius: 31px;height: 210px">
+                <div class="card-body text-center d-flex flex-column">
+                    <div class="mb-3">
+                        <img src="/media/card1.png" alt="Tích hợp công nghệ" style="width: 50px; height: 50px;">
+                    </div>
+                    <h5 class="fw-bold "  style="color: #29180F; font-weight: bold;">Tích hợp công nghệ</h5>
+                    <p class="text-muted mt-auto">Món quà thông điệp và kiến thức tích hợp trên phần mềm giáo dục dành riêng tặng bé.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-4 h-100">
+            <div class="card" style="border:#C9B079 solid 3px ; background-color: #ffffff; border-radius: 31px;height: 210px">
+                <div class="card-body text-center d-flex flex-column">
+                    <div class="mb-3">
+                        <img src="/media/card2.png" alt="Giáo dục đạt chuẩn" style="width: 50px; height: 50px;">
+                    </div>
+                    <h5 class="fw-bold" style="color: #29180F; font-weight: bold;">Giáo dục đạt chuẩn</h5>
+                    <p class="text-muted mt-auto">Phát triển sớm về tư duy, sáng tạo, tương tác, cảm xúc tích hợp công nghệ.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-4 h-100">
+            <div class="card" style="border:#C9B079 solid 3px ; background-color: #ffffff; border-radius: 31px;height: 210px">
+                <div class="card-body text-center d-flex flex-column">
+                    <div class="mb-3">
+                        <img src="/media/card3.png" alt="An toàn - Thân thiện" style="width: 50px; height: 50px;">
+                    </div>
+                    <h5 class="fw-bold" style="color: #29180F; font-weight: bold;">An toàn - Thân thiện</h5>
+                    <p class="text-muted mt-auto">Sử dụng gỗ thông thừa và vụn tái chế theo quy trình an toàn cho trẻ em và môi trường.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="height: 100px;"></div>
+</div>
+<div class="text-center mb-4" style="position: absolute; top:2550px; left: 400px;">
+    <div class="d-inline-flex align-items-center p-3 bg-light border rounded-pill">
+        <img src="/media/title3.png" alt="Icon" class="me-2" style="width: 60px; height: 70px;">
+        <h2 class="mb-0 fw-bold text-dark">Đồ Chơi Được Yêu Thích Nhất</h2>
+    </div>
+</div>
+<!-- Product Cards Section -->
+<div class="row justify-content-center "  style="background-color: #F7F2EC; padding: 100px; color: #29180F; font-size: 20px;">
+    <!-- Card 1 -->
+     
+    <div class="col-md-3">
+        <div class="card border-0 shadow align-items-center" style="height: 350px; border-radius: 37px;">
+            <div class="container-fluid" style="background-color: #F7F2EC; border: 3px solid #fff; border-radius: 37px 37px 0px 0px; height: 70%;"><img src="/media/img3-1.png" class="card-img-top" alt="Product 1"></div>
+            <div class="card-body text-center" style="height: 30%; padding-top: 2%;">
+                <h6 class="card-title mb-2">Aria - 11.5 Farfalla</h6>
+                <p class="card-text mb-1 text-warning">★★★★☆</p>
+                <p class="card-text fw-bold">350.000 đ</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-3">
+        <div class="card border-0 shadow align-items-center" style="height: 350px; border-radius: 37px;">
+            <div class="container-fluid" style="background-color: #F7F2EC; border: 3px solid #fff; border-radius: 37px 37px 0px 0px; height: 70%;"><img src="/media/img3-2.png" class="card-img-top" alt="Product 2" style="height: 200px"></div>
+            <div class="card-body text-center" style="height: 30%; padding-top: 2%;">
+                <h6 class="card-title mb-2">Blaze - 13.5 Drago</h6>
+                <p class="card-text text-warning mb-1">★★★★☆</p>
+                <p class="card-text fw-bold">350.000 đ</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-3">
+        <div class="card border-0 shadow align-items-center" style="height: 350px; border-radius: 37px;">
+            <div class="container-fluid" style="background-color: #F7F2EC; border: 3px solid #fff; border-radius: 37px 37px 0px 0px; height: 70%;"><img src="/media/img3-3.png" class="card-img-top" alt="Product 3" style="width: 150px; margin-left: 40px;margin-top: 20px;"></div>
+            <div class="card-body text-center" style="height: 30%; padding-top: 2%;">
+                <h6 class="card-title mb-2">Clover - 10.5 Lepre</h6>
+                <p class="card-text text-warning mb-1">★★★★☆</p>
+                <p class="card-text fw-bold">350.000 đ</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-md-3">
+        <div class="card border-0 shadow align-items-center" style="height: 350px; border-radius: 37px;">
+            <div class="container-fluid" style="background-color: #F7F2EC; border: 3px solid #fff; border-radius: 37px 37px 0px 0px; height: 70%;"><img src="/media/img3-4.png" class="card-img-top" alt="Product 4" style="width: 227px; height: 235px;"></div>
+            <div class="card-body text-center" style="height: 30%; padding-top: 2%;">
+                <h6 class="card-title mb-2">Jumbo - 10.5 Elefante</h6>
+                <p class="card-text text-warning mb-1">★★★★☆</p>
+                <p class="card-text fw-bold">350.000 đ</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-5" style="background-color: #E1EDE9;">
+    <!-- Title Section -->
+    <div class="text-center mb-4">
+        <div class="d-inline-flex align-items-center border-3 p-3 bg-light rounded-pill" style="border: solid #C9B079 ; border-radius: 15px;">
+            <img src="/media/Hear.png" alt="Icon" class="me-2" style="width: 24px; height: 24px;">
+            <h2 class="mb-0 fw-bold text-dark" style="font-style: italic;">Ý Kiến Từ Người Mua Hàng</h2>
+        </div>
+    </div>
+
+    <!-- Feedback Cards Section -->
+    <div class="row justify-content-center">
+        <!-- Feedback Card 1 -->
+        <div class="col-md-4 mb-3">
+            <div class="card border-3" style="border-color: #C9B079; background-color: #ffffff; border-radius: 15px;">
+                <div class="card-body">
+                    <p class="card-text" style="font-size: 18px;">"Bộ đồ chơi gỗ tuyệt được tái chế bảo vệ môi trường đem lại cho con những phút giây trí lành mạnh!"</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <div class="me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0;">
+                            <span class="fw-bold text-dark">M</span>
+                        </div>
+                        <div>
+                            <p class="mb-0 fw-bold">Mai Anh</p>
+                            <small class="text-muted">Hải Phòng</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Card 2 -->
+        <div class="col-md-4 mb-3">
+            <div class="card border-3" style="border-color: #C9B079; background-color: #ffffff; border-radius: 15px;">
+                <div class="card-body">
+                    <p class="card-text" style="font-size: 18px;">"Bộ đồ chơi gỗ tuyệt được tái chế bảo vệ môi trường đem lại cho con những phút giây trí lành mạnh!"</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <div class="me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0;">
+                            <span class="fw-bold text-dark">M</span>
+                        </div>
+                        <div>
+                            <p class="mb-0 fw-bold">Mai Anh</p>
+                            <small class="text-muted">Hải Phòng</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Card 3 -->
+        <div class="col-md-4 mb-3">
+            <div class="card border-3" style="border-color: #C9B079; background-color: #ffffff; border-radius: 15px;">
+                <div class="card-body">
+                    <p class="card-text" style="font-size: 18px;">"Bộ đồ chơi gỗ tuyệt được tái chế bảo vệ môi trường đem lại cho con những phút giây trí lành mạnh!"</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <div class="me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-radius: 50%; background-color: #f0f0f0;">
+                            <span class="fw-bold text-dark">M</span>
+                        </div>
+                        <div>
+                            <p class="mb-0 fw-bold">Mai Anh</p>
+                            <small class="text-muted">Hải Phòng</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="height: 100px;"></div>
+</div>
+<button><a href="{% url 'signout' %}">Log out</a></button>
+</div>
+{% endblock %}

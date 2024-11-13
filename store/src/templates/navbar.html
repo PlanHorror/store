@@ -1,0 +1,61 @@
+
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .text-nav {
+        color: #000;
+        font-weight: bold;
+    }
+</style>
+  <!-- Top Banner (separate row above the navbar) -->
+  <div class="w-100 d-flex justify-content-between align-items-center" style="background-color: #F0DACD; font-size: 0.9rem; padding: 0.5rem;">
+    <span class="">Hỗ trợ khách hàng</span>
+    <span class="mx-auto ">Nhận ngay Voucher 0đ khi đặt lần đầu bằng tài khoản</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/media/logo.png" alt="Logo" width="150">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="container d-flex justify-content-between align-items-center w-100">
+        <!-- Full-width Navigation Links -->
+        <ul class="navbar-nav d-flex flex-row justify-content-between" style=" width: 65%;">
+          <li class="nav-item">
+            <a class="nav-link text-nav" href="#">Chuyện về chúng tôi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nav" href="#">Tri thức nhỏ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nav" href="#">Bé giúp đỡ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-nav" href="#">EcoSmart Edu</a>
+          </li>
+        </ul>
+      
+        <!-- Icons and Login Button -->
+        <div class="d-flex justify-content-between align-items-center" style=" width: 15%;">
+            <a href="#" class="nav-link"><i class="bi bi-search"></i></a>
+            <a href="#" class="nav-link"><i class="bi bi-person"></i></a>
+            <a href="#" class="nav-link"><i class="bi bi-heart"></i></a>
+            <a href="#" class="nav-link"><i class="bi bi-cart"></i></a>
+        </div>
+        <a href="#" class="btn btn-success" style="margin-left: 0%; width: 15%; border-radius: 71px;">Mua hàng</a>
+      </div>
+      
+    </div>
+  </nav>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+{% endblock %}

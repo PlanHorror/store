@@ -1,0 +1,78 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+<style>
+.container {
+    margin-top: 50px;
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.container-first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+.form-section {
+    width: 50%;
+    padding: 40px;
+}
+
+.image-section {
+    width: 50%;
+    background-image: url('/media/back2.png');
+    background-size: cover;
+    background-position: center;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #6a0dad; /* Adjust color as needed */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #5a0c9a;
+}
+</style>
+<div class="first-container">
+
+<div class="container">
+    <div class="form-section">
+        <div class="logo">
+            <img src="/media/logo.png" alt="Logo">
+        </div>
+        <h2>Welcome to EcoSmartToys👋</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ signin_form|crispy }}
+            <button type="submit" class="btn-submit">Đăng nhập</button>
+        </form>
+    </div>
+    <div class="image-section">
+        <!-- Background image applied with CSS -->
+    </div>
+</div>
+</div>
+{% endblock %}

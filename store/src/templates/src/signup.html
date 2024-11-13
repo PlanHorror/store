@@ -1,0 +1,91 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %} {% load static %}
+<style>
+.container-first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /* background-color: #f5f5f5; */
+}
+.container-second{
+  width: 90%;
+  height: 110%;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.form-container{
+  padding: 30px;
+  width: 50%;
+}
+.form-container h2 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+.image-container {
+  width: 50%;
+  background-image: url('/media/Rectangle.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; /* Ensures no repeat */
+  margin: 0; /* Removes margin */
+  padding: 0; /* Removes padding */
+  box-sizing: border-box; /* Ensures proper sizing */
+}
+/* Set attribute for id id_email, id_parent_name, id_username, id_password1, id_password2 */
+#id_password1_helptext{
+  font-size: 10px;
+}
+.form-container {
+  font-size:13px;
+}
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    for (i of [1, 2]) {
+      const togglePassword = document.querySelector(`#password${i}Button`);
+      const password = document.querySelector(`#id_password${i}`);
+
+      togglePassword.addEventListener('click', function (e) {
+
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        if (this.firstChild.classList.contains('fa-eye-slash')) {
+          this.firstChild.classList.remove('fa-eye-slash')
+          this.firstChild.classList.add('fa-eye');
+        }
+        else {
+          this.firstChild.classList.remove('fa-eye');
+          this.firstChild.classList.add('fa-eye-slash');
+        }
+      });
+    }
+  });
+</script>
+<div class="container-fluid container-first">
+  <div class="container-fluid container-second" >
+  <div class="form-container" >
+    <form method="post" >
+      <h2>Welcome to EcoSmartToys👋</h2>
+      {% csrf_token %} {% crispy profile_form %} {% crispy form %}
+      <div style="display: flex; align-items: center;">
+      <input type="checkbox" required>
+      <label for="checkbox" style="margin-left: 10px; font-size: smaller;">Tôi đồng ý với Điều khoản dịch vụ và xác nhận bạn đã đọc Chính sách bảo mật của chúng tôi.</label>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-success">Tạo tài khoản</button>
+      <br>
+      <p>Đã là thành viên ? <a href="/login">Đăng nhập</a></p>
+    </form>
+  </div>
+  <div class="image-container">
+    <!-- <img src="/media/Rectangle.png" alt="Eco Smart Toys" style="height: 100%; width: 110%;"> -->
+  </div>
+</div>
+</div>
+{% endblock %}
