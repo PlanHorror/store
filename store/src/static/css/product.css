@@ -1,0 +1,80 @@
+.navbar {
+    background-color: #f7f8fa;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: #0066cc !important;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #f39c12 !important;
+}
+
+.product-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.thumbnail-images img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.discount-price {
+    color: #e67e22;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+.btn-custom {
+    background-color: #f39c12;
+    color: white;
+}
+
+.offer-box {
+    background-color: #FFD700;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.stock-info {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #F7F2EC;
+}
+.logo {
+    height: 50px;
+}
+@media (max-width: 768px) {
+    .offer-box {
+        font-size: 1rem;
+    }
+
+    .product-image {
+        margin-bottom: 20px;
+    }
+}
+
+.btn.active {
+    background-color: #f39c12;
+    color: white;
+}

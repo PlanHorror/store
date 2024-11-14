@@ -1,154 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Page</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .navbar-brand img {
-      max-height: 50px;
-    }
-    .product-title {
-      font-weight: bold;
-      font-size: 1.25rem;
-    }
-    .price-section {
-      background-color: #f8f9fa;
-      padding: 15px;
-      border-radius: 8px;
-    }
-    .price {
-      color: #ff7f00;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    .btn-purchase {
-      background-color: #ff7f00;
-      color: white;
-      font-weight: bold;
-    }
-    .btn-purchase:hover {
-      background-color: #e67200;
-    }
-    .thumbnail {
-      max-width: 100px;
-      max-height: 100px;
-      object-fit: cover;
-    }
-    .rating-box {
-      background-color: #ffeb3b;
-      color: black;
-      font-weight: bold;
-      border-radius: 8px;
-      display: inline-block;
-      padding: 5px 10px;
-    }
-  </style>
-</head>
-<body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <!-- Brand Logo -->
-      <a class="navbar-brand" href="#">
-        <img src="logo.png" alt="EcoSmart Logo" style="height: 50px;">
-      </a>
-      
-      <!-- Navbar Toggler (for mobile responsiveness) -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-  
-      <!-- Navbar Links -->
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Chuyện về EcoTech Toys</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Bố mẹ cùng</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tranh ghép gỗ</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  
-
-  <!-- Main Content -->
-  <div class="container my-5">
-    <div class="row">
-      <!-- Product Image Section -->
-      <div class="col-md-6">
-        <img src="main-product-image.jpg" alt="Main Product" class="img-fluid mb-3">
-        <div class="d-flex gap-2">
-          <img src="thumbnail1.jpg" alt="Thumbnail 1" class="thumbnail border">
-          <img src="thumbnail2.jpg" alt="Thumbnail 2" class="thumbnail border">
-          <img src="thumbnail3.jpg" alt="Thumbnail 3" class="thumbnail border">
+{% extends "base.html" %}
+{% block content %}
+<!-- Load static -->
+{% load static %}
+<!-- Custom Styles -->
+<link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
+        <div class="container-fluid align-items-center">
+            <!-- Brand Logo -->
+            <a class="navbar-brand" href="/">
+                <img class="logo" src="/media/logo.png" alt="EcoSmart Logo">
+            </a>
+            <!-- Navbar Links and Cart Icon -->
+            <div class="container-fluid d-flex justify-content-between align-items-center py-2">
+                <ul class="navbar-nav d-flex flex-row w-100 justify-content-around">
+                    <li class="nav-item flex-fill text-center">
+                        <a class="nav-link text-nav" href="#">Chuyện về chúng tôi</a>
+                    </li>
+                    <li class="nav-item flex-fill text-center">
+                        <a class="nav-link text-nav" href="#">Tri thức nhỏ</a>
+                    </li>
+                    <li class="nav-item flex-fill text-center">
+                        <a class="nav-link text-nav" href="#">Bé giúp đỡ</a>
+                    </li>
+                    <li class="nav-item flex-fill text-center">
+                        <a class="nav-link text-nav" href="#">EcoSmart Edu</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#" class="d-flex align-items-center ms-auto">
+                    <div class="cart-icon d-flex justify-content-center align-items-center" style="width: 45px; height: 45px;">
+                        <img src="/media/cart_icon.png" alt="Cart Icon" style="width: 32px; height: 32px;">
+                    </div>
+                </a>
+            </div>
         </div>
-      </div>
+    </nav>
 
-      <!-- Product Info Section -->
-      <div class="col-md-6">
-        <h1 class="product-title">Bảng bận rộn cho bé rèn luyện vận động</h1>
-        <p class="text-muted">Dành cho bé 0-3 tuổi</p>
+    <!-- Product Section -->
+    <div class="container my-5">
+        <div class="row g-4">
+            <!-- Left Side: Product Image & Thumbnails -->
+            <div class="col-lg-6">
+                <img id="mainImage" src="/media/productdefault0.png" alt="Product Image" class="img-fluid product-image mb-4">
+                <div class="row thumbnail-images">
+                    <div class="col-3">
+                        <img src="/media/productdefault0.png" class="img-fluid thumbnail" alt="Thumbnail 1" onclick="changeImage('/media/productdefault0.png')">
+                    </div>
+                    <div class="col-3">
+                        <img src="/media/productdefault1.png" class="img-fluid thumbnail" alt="Thumbnail 2" onclick="changeImage('/media/productdefault1.png')">
+                    </div>
+                    <div class="col-3">
+                        <img src="/media/productdefault2.png" class="img-fluid thumbnail" alt="Thumbnail 3" onclick="changeImage('/media/productdefault2.png')">
+                    </div>
+                    <div class="col-3">
+                        <img src="/media/productdefault3.png" class="img-fluid thumbnail" alt="Thumbnail 4" onclick="changeImage('/media/productdefault3.png')">
+                    </div>
+                </div>
+            </div>
 
-        <div class="price-section mb-3">
-          <p class="price">999,000đ</p>
-          <p class="text-muted"><del>1,200,000đ</del></p>
+            <!-- Right Side: Product Details -->
+            <div class="col-lg-6">
+                <div>
+                    <div class="d-flex align-items-stretch mb-4" style="border-radius: 8px; overflow: hidden;">
+                        <div class="d-flex flex-column justify-content-center p-3 flex-grow-1" style="background-color: #FFD700; width: 50%;">
+                            <div style="font-weight: bold;">Ưu đãi</div>
+                            <div class="d-flex align-items-center">
+                                <span style="font-size: 1.5rem; color: #0066cc; font-weight: bold;">999,000₫</span>
+                                <span style="text-decoration: line-through; color: #7f8c8d; margin-left: 10px;">1,999,000₫</span>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center p-3" style="background-color: #007bff; color: white; text-align: right; width: 50%;">
+                            <div>Kết thúc sau <strong>08:56</strong> phút</div>
+                            <div>Còn <strong>13/300</strong> suất</div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-weight: bold;">Bảng bận rộn cho bé rèn luyện vận động</h3>
+                    <p class="text-muted">Dành cho bé 0-3 tuổi</p>
+                    <h5 class="mb-3">Màu</h5>
+                    <div class="d-flex mb-4 colorbut">
+                        <button type="button" class="btn btn-outline-warning me-3 active " data-color="Nâu cam">Nâu cam</button>
+                        <button type="button" class="btn btn-outline-warning me-3 " data-color="Hồng">Hồng</button>
+                        <button type="button" class="btn btn-outline-warning " data-color="Xanh">Xanh</button>
+                    </div>
+                    <input type="hidden" id="selectedColor" value="Nâu cam">
+
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="quantity-selector d-flex align-items-center">
+                            <button class="btn btn-outline-secondary minus-btn" type="button">-</button>
+                            <input type="number" class="form-control text-center mx-2" value="1" min="1" style="width: 60px;">
+                            <button class="btn btn-outline-secondary plus-btn" type="button">+</button>
+                        </div>
+                        <button class="btn btn-primary mx-3" style="background-color: #007bff; border-color: #007bff;">Thêm vào giỏ hàng</button>
+                        <button class="btn btn-warning" style="background-color: #f39c12; border-color: #f39c12;">Mua ngay</button>
+                    </div>
+
+                    <div class="container-fluid my-4" style="padding: 0%;">
+                        <h4 class="fw-bold" style="padding-left: 0%;">Chính sách chăm sóc khách hàng</h4>
+                        <div class="row">
+                            <div class="col-md-6 d-flex align-items-center mb-3" style="font-size: 16px;">
+                                <img src="/media/icon_1.png" alt="Check Icon" style="width: 20px; height: 20px; margin-right: 8px;">
+                                Hướng dẫn sử dụng cho ba mẹ
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center mb-3" style="font-size: 16px;">
+                                <img src="/media/icon_2.png" alt="Refund Icon" style="width: 20px; height: 20px; margin-right: 8px;">
+                                Hoàn tiền trong 48h
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center mb-3" style="font-size: 16px;">
+                                <img src="/media/icon_3.png" alt="Return Icon" style="width: 20px; height: 20px; margin-right: 8px;">
+                                30 ngày đổi trả vì bất kỳ lý do gì
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center mb-3" style="font-size: 16px;">
+                                <img src="/media/icon_4.png" alt="Support Icon" style="width: 20px; height: 20px; margin-right: 8px;">
+                                Hỗ trợ từ 8h - 21h mỗi ngày
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="mb-3">
-          <label class="form-label">Màu</label>
-          <div class="d-flex gap-3">
-            <button class="btn btn-outline-primary">Nâu cam</button>
-            <button class="btn btn-outline-primary">Hồng</button>
-            <button class="btn btn-outline-primary">Xanh</button>
-          </div>
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-3" style="font-size: 28px;">Chi tiết sản phẩm</h4>
+                    <p>Đồ chơi khối xây dựng tên lửa Montessori bao gồm 5 cấp độ với 20+ trò chơi khác nhau sẽ cung cấp nhiều lựa chọn giá trị cho con bạn.</p>
+                    <p><strong>Công dụng:</strong></p>
+                    <ul style="padding-left: 1rem;">
+                        <li>Rèn luyện vận động tinh ở nhiều mức độ khác nhau: Kéo khóa, lắp ráp hình khối, xâu chuỗi...</li>
+                        <li>Nhận biết và đếm số từ 1-5</li>
+                        <li>Tập so sánh kích thước lớn - nhỏ</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="fw-bold mb-3" style="font-size: 28px;">Đánh giá của khách hàng</h4>
+                    <div class="d-flex align-items-center justify-content-center" style="width: 50%;">
+                        <div style="background-color: #f1c40f; padding: 10px 25px; border-radius: 10px; margin-right: 10%;">
+                            <span style="font-size: 24px; font-weight: bold; color: white;">5</span>
+                        </div>
+                        <p class="mb-0 mt-2" style="font-size: 16px;">Dựa trên <strong>10 đánh giá</strong></p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="d-flex gap-2 mb-4">
-          <button class="btn btn-primary">Thêm vào giỏ hàng</button>
-          <button class="btn btn-purchase">Mua ngay</button>
-        </div>
-
-        <p class="text-muted">Chính sách chăm sóc khách hàng:</p>
-        <ul class="text-muted">
-          <li>Miễn phí đổi trả trong vòng 7 ngày</li>
-          <li>Giao hàng miễn phí với đơn từ 500,000đ</li>
-        </ul>
-      </div>
     </div>
 
-    <!-- Product Details -->
-    <div class="mt-5">
-      <h3>Chi tiết sản phẩm</h3>
-      <p>
-        Đồ chơi khơi xây dựng theo lứa Montessori bao gồm 5 cấp độ và 20+ trò chơi khác nhau
-        sẽ cung cấp nhiều lựa chọn giá trị cho con bạn. 
-      </p>
-      <ul>
-        <li>Rèn luyện vận động tinh & nhiều mức độ khác nhau</li>
-        <li>Nhập vai sáng tạo</li>
-        <li>Học kỹ năng tự lập cơ bản</li>
-        <li>... và tạo sự khích lệ, hứng thú cho trẻ!</li>
-      </ul>
-    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        function changeImage(imagePath) {
+            document.getElementById('mainImage').src = imagePath;
+        }
 
-    <!-- Customer Reviews -->
-    <div class="mt-5">
-      <h3>Đánh giá của khách hàng</h3>
-      <div class="rating-box">5</div>
-      <p class="mt-2">Dựa trên 10 đánh giá</p>
-    </div>
-  </div>
+        const colorButtons = document.querySelectorAll('.colorbut .btn ');
+        const selectedColorInput = document.getElementById('selectedColor');
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+        colorButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                colorButtons.forEach(btn => btn.classList.remove('active', 'btn-warning'));
+                this.classList.add('active', 'btn-warning');
+                selectedColorInput.value = this.getAttribute('data-color');
+            });
+        });
+
+        document.querySelector('.minus-btn').addEventListener('click', function () {
+            const input = this.nextElementSibling;
+            if (input.value > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        });
+
+        document.querySelector('.plus-btn').addEventListener('click', function () {
+            const input = this.previousElementSibling;
+            input.value = parseInt(input.value) + 1;
+        });
+    </script>
+
+{% endblock %}

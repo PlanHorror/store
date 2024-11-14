@@ -1,236 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoSmart Toys Product</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        /* Navbar Styles with Shadow */
-        .navbar {
-            background-color: #f7f8fa;
-            padding: 10px 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-link {
-            color: #0066cc !important;
-            font-weight: 600;
-        }
-
-        .nav-link:hover {
-            color: #f39c12 !important;
-        }
-
-        /* Main Content Styles */
-        .product-image {
-            width: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-
-        .thumbnail-images img {
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            border-radius: 8px;
-        }
-
-        .discount-price {
-            color: #e67e22;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .original-price {
-            text-decoration: line-through;
-            color: #7f8c8d;
-            font-size: 1.2rem;
-        }
-
-        .btn-custom {
-            background-color: #f39c12;
-            color: white;
-        }
-
-        .offer-box {
-            background-color: #FFD700;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .stock-info {
-            background-color: #007bff;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .offer-box {
-                font-size: 1rem;
-            }
-
-            .product-image {
-                margin-bottom: 20px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-white shadow-sm">
-        <div class="container align-items-center">
-            <!-- Brand Logo -->
-            <a class="navbar-brand" href="#">
-                <img src="/media/logo.png" alt="EcoSmart Logo" style="height: 50px;">
-            </a>
-            </button>
-            <!-- Navbar Links and Cart Icon -->
-            <div class="container d-flex justify-content-between align-items-center w-100" id="navbarNav">
-                <ul class="navbar-nav d-flex flex-row justify-content-between">
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="#">Chuyện về EcoTech Toys</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="#">Bộ mê cung</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="#">Tranh ghép gỗ</a>
-                    </li>
-                </ul>
-                <!-- Cart Icon -->
-                <a href="#" class="d-flex align-items-center ms-auto">
-                    <div class="cart-icon d-flex justify-content-center align-items-center" style="width: 45px; height: 45px;">
-                        <img src="/media/cart_icon.png" alt="Cart Icon" style="width: 32px; height: 32px;">
-                    </div>
-                </a>
+{% extends "base.html" %}
+{% block content %}
+<!-- Load static -->
+{% load static %}
+<!-- Custom Styles -->
+<footer class="py-5" style="background-color: #F0DACD;">
+    <div class="container">
+        <!-- Subscription Section -->
+        <div class="row mb-4">
+            <div class="col-lg-8">
+                <h4 class="fw-bold">EcoSmart Toys luôn lắng nghe bạn!</h4>
+                <p>Chúng tôi luôn trân trọng và mong muốn nhận được mọi phản hồi từ khách hàng để có thể cải thiện dịch vụ, sản phẩm và mang tới trải nghiệm tốt hơn.</p>
             </div>
-        </div>
-    </nav>
-
-    <!-- Product Section -->
-    <div class="container my-5">
-        <div class="row g-4">
-            <!-- Left Side: Product Image & Thumbnails -->
-            <div class="col-lg-6">
-                <img src="/media/product_main.jpg" alt="Product Image" class="img-fluid product-image mb-4">
-                <div class="row thumbnail-images">
-                    <div class="col-3"><img src="/media/thumbnail1.jpg" class="img-fluid" alt="Thumbnail 1"></div>
-                    <div class="col-3"><img src="/media/thumbnail2.jpg" class="img-fluid" alt="Thumbnail 2"></div>
-                    <div class="col-3"><img src="/media/thumbnail3.jpg" class="img-fluid" alt="Thumbnail 3"></div>
-                    <div class="col-3"><img src="/media/thumbnail4.jpg" class="img-fluid" alt="Thumbnail 4"></div>
-                </div>
-            </div>
-
-            <!-- Right Side: Product Details -->
-            <div class="col-lg-6">
-                <!-- Combined Product Details and Pricing Div -->
-<div>
-    <!-- Top Section: Offer, Price, and Stock Info -->
-    <div class="d-flex align-items-stretch mb-4" style="border-radius: 8px; overflow: hidden;">
-        <!-- Left Yellow Section -->
-        <div class="d-flex flex-column justify-content-center p-3 flex-grow-1" style="background-color: #FFD700;">
-            <div style="font-weight: bold;">Ưu đãi</div>
-            <div class="d-flex align-items-center">
-                <span style="font-size: 1.5rem; color: #0066cc; font-weight: bold;">999,000₫</span>
-                <span style="text-decoration: line-through; color: #7f8c8d; margin-left: 10px;">1,999,000₫</span>
+            <div class="col-lg-4 d-flex align-items-center">
+                <input type="email" class="form-control me-2" placeholder="Nhập email của bạn">
+                <button class="btn btn-primary" style="width: 70%;;">Đăng ký ngay</button>
             </div>
         </div>
         
-        <!-- Right Blue Section -->
-        <div class="d-flex flex-column justify-content-center p-3" style="background-color: #007bff; color: white; text-align: right;">
-            <div>Kết thúc sau <strong>08:56</strong> phút</div>
-            <div>Còn <strong>13/300</strong> suất</div>
-        </div>
-    </div>
+        <!-- Horizontal Line -->
+        <hr style="border-top: 2px solid #C9B079;">
 
-    <!-- Product Title and Description -->
-    <h3 style="font-weight: bold;">Bảng bận rộn cho bé rèn luyện vận động</h3>
-    <p class="text-muted">Dành cho bé 0-3 tuổi</p>
-                <h5 class="mb-3">Màu</h5>
-                <div class="d-flex mb-4">
-                    <button type="button" class="btn btn-outline-warning me-3 active" data-color="Nâu cam">Nâu cam</button>
-                    <button type="button" class="btn btn-outline-warning me-3" data-color="Hồng">Hồng</button>
-                    <button type="button" class="btn btn-outline-warning" data-color="Xanh">Xanh</button>
-                </div>
-
-                <!-- Hidden Input to Store Selected Color -->
-                <input type="hidden" id="selectedColor" value="Nâu cam">
-
-                <!-- JavaScript for Handling Selection -->
-                <script>
-                    const colorButtons = document.querySelectorAll('.d-flex .btn');
-                    const selectedColorInput = document.getElementById('selectedColor');
-
-                    colorButtons.forEach(button => {
-                        button.addEventListener('click', function () {
-                            // Remove 'active' class from all buttons
-                            colorButtons.forEach(btn => btn.classList.remove('active', 'btn-warning'));
-                            
-                            // Add 'active' and 'btn-warning' class to the clicked button
-                            this.classList.add('active', 'btn-warning');
-                            
-                            // Update hidden input with the selected color
-                            selectedColorInput.value = this.getAttribute('data-color');
-                        });
-                    });
-                </script>
-
-                <!-- Minimal Custom CSS -->
-                <style>
-                    .btn.active {
-                        background-color: #f39c12;
-                        color: white;
-                    }
-                </style>
-                    <!-- Quantity Selector and Buttons -->
-                    <div class="d-flex align-items-center mb-4">
-                        <!-- Updated Quantity Selector -->
-                        <div class="quantity-selector d-flex align-items-center">
-                            <button class="btn btn-outline-secondary minus-btn" type="button">-</button>
-                            <input type="number" class="form-control text-center mx-2" value="1" min="1" style="width: 60px;">
-                            <button class="btn btn-outline-secondary plus-btn" type="button">+</button>
-                        </div>
-                        <button class="btn btn-primary mx-3" style="background-color: #007bff; border-color: #007bff;">Thêm vào giỏ hàng</button>
-                        <button class="btn btn-warning" style="background-color: #f39c12; border-color: #f39c12;">Mua ngay</button>
-                    </div>
-
-                    <!-- Customer Care Policies -->
-                    <h5>Chính sách chăm sóc khách hàng</h5>
+        <!-- Links Section -->
+        
+            <div class="row">
+                <!-- Column 1: Per aiutare -->
+                <div class="col-12 col-md-6 col-lg-2 flex-fill mb-4">
+                    <h5 class="fw-bold">Per aiutare</h5>
                     <ul class="list-unstyled">
-                        <li>✅ Hướng dẫn sử dụng cho bé mẹ</li>
-                        <li>🔄 30 ngày đổi trả vì bất kỳ lý do gì</li>
-                        <li>🚚 Hoàn tiền trong 48h</li>
-                        <li>⏰ Hỗ trợ từ 8h - 21h mỗi ngày</li>
+                        <li><a href="#" class="text-decoration-none text-dark">Consegna</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Ritorno</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Domande frequenti</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Pagamento sicuro</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Privacy e sicurezza</a></li>
                     </ul>
                 </div>
-
-                <!-- JavaScript to handle quantity buttons -->
-                <script>
-                    document.querySelector('.minus-btn').addEventListener('click', function() {
-                        const input = this.nextElementSibling;
-                        if (input.value > 1) {
-                            input.value = parseInt(input.value) - 1;
-                        }
-                    });
-
-                    document.querySelector('.plus-btn').addEventListener('click', function() {
-                        const input = this.previousElementSibling;
-                        input.value = parseInt(input.value) + 1;
-                    });
-                </script>
-            </div>
+        
+                <!-- Column 2: Chi siamo -->
+                <div class="col-12 col-md-6 col-lg-2 flex-fill mb-4">
+                    <h5 class="fw-bold">Chi siamo</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">La nostra storia</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Sicurezza e idonetà</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Generali T $ C</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Commercio equo</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Mappa del sito</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Column 3: Commercio -->
+                <div class="col-12 col-md-6 col-lg-2 flex-fill mb-4">
+                    <h5 class="fw-bold">Commercio</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">Rivenditori esterni</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Diventa un rivenditore</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Fiere e Convegni</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Termini e condizioni</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Pubbliche relazioni</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Column 4: Supporto -->
+                <div class="col-12 col-md-6 col-lg-2 flex-fill mb-4">
+                    <h5 class="fw-bold">Supporto</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">Il mio conto</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Contattaci</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Spedizione</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Spedizione estiva</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Richiamare</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Column 5: Mạng xã hội -->
+                <div class="col-12 col-md-6 col-lg-2 flex-fill mb-4">
+                    <h5 class="fw-bold">Mạng xã hội</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-dark">Instagram</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Facebook</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Twitter</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">YouTube</a></li>
+                        <li><a href="#" class="text-decoration-none text-dark">Pinterest</a></li>
+                    </ul>
+                </div>
+           
         </div>
+        
     </div>
+</footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
 
-</html>
+
+
+{% endblock %}

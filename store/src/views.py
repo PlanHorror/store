@@ -3,6 +3,7 @@ from .form import SignUpForm, Profile_Form, SignInForm
 from .models import Profile
 from django.contrib.auth import login, authenticate
 from django.contrib import messages, auth
+from django.conf import settings
 # Create your views here.
 def home(request):
     return render(request, 'src/home.html')
@@ -46,5 +47,10 @@ def signin(request):
 def signout(request):
     auth.logout(request)
     return redirect('/')
+def product(request):
+    return render(request, 'src/product.html')
 def test(request):
+    # Print static url
+    print('STATIC_URL:', settings.STATIC_URL)
     return render(request, 'src/test.html')
+    
