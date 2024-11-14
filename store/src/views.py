@@ -1,11 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .form import SignUpForm, Profile_Form, SignInForm
-from .models import Profile
+from .models import Profile, Product, Bill
 from django.contrib.auth import login, authenticate
 from django.contrib import messages, auth
 from django.conf import settings
+from django.utils.text import slugify
 # Create your views here.
 def home(request):
+    products = list(Product.objects.all())
+    product = products[0]
+    # Print slug name of the first product
+    # print('Slug name:', slugify(product.name))
     return render(request, 'src/home.html')
 def signup(request):
     if request.user.is_authenticated:
@@ -47,8 +52,16 @@ def signin(request):
 def signout(request):
     auth.logout(request)
     return redirect('/')
-def product(request):
-    return render(request, 'src/product.html')
+def product(request, product_id, product_name):
+    product = get_object_or_404(Product, pk=product_id)
+    # Make money format with comma after every 3 digits
+    product.price = "{:,}".format(product.price)
+    product.sale_price = "{:,}".format(product.sale_price)
+    # Take list of product_uses
+    product.product_uses = product.product_uses.split(';')
+    print('Product:', product.price)
+    return render(request, 'src/product.html', {'product': product})
+    
 def test(request):
     # Print static url
     print('STATIC_URL:', settings.STATIC_URL)

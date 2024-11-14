@@ -43,19 +43,19 @@
         <div class="row g-4">
             <!-- Left Side: Product Image & Thumbnails -->
             <div class="col-lg-6">
-                <img id="mainImage" src="/media/productdefault0.png" alt="Product Image" class="img-fluid product-image mb-4">
+                <img id="mainImage" src= "/media/{{ product.image1 }}" alt="Product Image" class="img-fluid product-image mb-4">
                 <div class="row thumbnail-images">
                     <div class="col-3">
-                        <img src="/media/productdefault0.png" class="img-fluid thumbnail" alt="Thumbnail 1" onclick="changeImage('/media/productdefault0.png')">
+                        <img src="/media/{{ product.image1 }}" class="img-fluid thumbnail" alt="Thumbnail 1" onclick="changeImage('/media/{{ product.image1 }}')">
                     </div>
                     <div class="col-3">
-                        <img src="/media/productdefault1.png" class="img-fluid thumbnail" alt="Thumbnail 2" onclick="changeImage('/media/productdefault1.png')">
+                        <img src="/media/{{ product.image2 }}" class="img-fluid thumbnail" alt="Thumbnail 2" onclick="changeImage('/media/{{ product.image2 }}')">
                     </div>
                     <div class="col-3">
-                        <img src="/media/productdefault2.png" class="img-fluid thumbnail" alt="Thumbnail 3" onclick="changeImage('/media/productdefault2.png')">
+                        <img src="/media/{{ product.image3 }}" class="img-fluid thumbnail" alt="Thumbnail 3" onclick="changeImage('/media/{{ product.image3 }}')">
                     </div>
                     <div class="col-3">
-                        <img src="/media/productdefault3.png" class="img-fluid thumbnail" alt="Thumbnail 4" onclick="changeImage('/media/productdefault3.png')">
+                        <img src="/media/{{ product.image4 }}" class="img-fluid thumbnail" alt="Thumbnail 4" onclick="changeImage('/media/{{ product.image4 }}')">
                     </div>
                 </div>
             </div>
@@ -67,8 +67,8 @@
                         <div class="d-flex flex-column justify-content-center p-3 flex-grow-1" style="background-color: #FFD700; width: 50%;">
                             <div style="font-weight: bold;">Ưu đãi</div>
                             <div class="d-flex align-items-center">
-                                <span style="font-size: 1.5rem; color: #0066cc; font-weight: bold;">999,000₫</span>
-                                <span style="text-decoration: line-through; color: #7f8c8d; margin-left: 10px;">1,999,000₫</span>
+                                <span style="font-size: 1.5rem; color: #0066cc; font-weight: bold;">{{ product.sale_price }}₫</span>
+                                <span style="text-decoration: line-through; color: #7f8c8d; margin-left: 10px;">{{ product.price }}₫</span>
                             </div>
                         </div>
                         <div class="d-flex flex-column justify-content-center p-3" style="background-color: #007bff; color: white; text-align: right; width: 50%;">
@@ -77,8 +77,8 @@
                         </div>
                     </div>
 
-                    <h3 style="font-weight: bold;">Bảng bận rộn cho bé rèn luyện vận động</h3>
-                    <p class="text-muted">Dành cho bé 0-3 tuổi</p>
+                    <h3 style="font-weight: bold;">{{ product.name }}</h3>
+                    <p class="text-muted">{{ product.objects_used }}</p>
                     <h5 class="mb-3">Màu</h5>
                     <div class="d-flex mb-4 colorbut">
                         <button type="button" class="btn btn-outline-warning me-3 active " data-color="Nâu cam">Nâu cam</button>
@@ -125,12 +125,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <h4 class="fw-bold mb-3" style="font-size: 28px;">Chi tiết sản phẩm</h4>
-                    <p>Đồ chơi khối xây dựng tên lửa Montessori bao gồm 5 cấp độ với 20+ trò chơi khác nhau sẽ cung cấp nhiều lựa chọn giá trị cho con bạn.</p>
+                    <p>{{ product.description }}</p>
                     <p><strong>Công dụng:</strong></p>
                     <ul style="padding-left: 1rem;">
-                        <li>Rèn luyện vận động tinh ở nhiều mức độ khác nhau: Kéo khóa, lắp ráp hình khối, xâu chuỗi...</li>
-                        <li>Nhận biết và đếm số từ 1-5</li>
-                        <li>Tập so sánh kích thước lớn - nhỏ</li>
+                        {% for product_uses in product.product_uses %}
+                        <li>{{ product_uses }}</li>
+                        {% endfor %}
+
                     </ul>
                 </div>
                 <div class="col-md-6">

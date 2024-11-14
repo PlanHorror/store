@@ -59,11 +59,13 @@ h2 {
 <div class="first-container">
 
 <div class="container">
-    <div class="form-section">
-        <div class="logo">
+    <div class="form-section align-items-center">
+        <div class="justify-content-center align-items-center container-fluid" style="justify-content: center; align-items: center;" >
+        <a href="/" style="margin-left  : 90px;">
             <img src="/media/logo.png" alt="Logo">
+        </a>
         </div>
-        <h2>Welcome to EcoSmartToys👋</h2>
+        <h3>Welcome to EcoSmartToys👋</h3>
         <form method="post">
             {% csrf_token %}
             {{ signin_form|crispy }}
