@@ -5,13 +5,20 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages, auth
 from django.conf import settings
 from django.utils.text import slugify
+from django.core.paginator import Paginator
 # Create your views here.
 def home(request):
     products = list(Product.objects.all())
-    product = products[0]
+    # Take product by list of product id
+    list_id = [1, 2, 3, 4]
+    products = Product.objects.filter(id__in=list_id)
     # Print slug name of the first product
     # print('Slug name:', slugify(product.name))
-    return render(request, 'src/home.html')
+    # Make money format with comma after every 3 digits
+    for product in products:
+        product.price = "{:,}".format(product.price)
+        product.sale_price = "{:,}".format(product.sale_price)
+    return render(request, 'src/home.html', {'products': products})
 def signup(request):
     if request.user.is_authenticated:
         messages.error(request, 'Bạn đã đăng nhập!')
@@ -59,11 +66,32 @@ def product(request, product_id, product_name):
     product.sale_price = "{:,}".format(product.sale_price)
     # Take list of product_uses
     product.product_uses = product.product_uses.split(';')
-    print('Product:', product.price)
+    if request.method == 'POST':
+        print('POST:', request.POST)
+        redirect('product', product_id=product_id, product_name=product_name)
     return render(request, 'src/product.html', {'product': product})
-    
+def products(request):
+    products = list(Product.objects.all())
+    # Make money format with comma after every 3 digits
+    for product in products:
+        product.price = "{:,}".format(product.price)
+        product.sale_price = "{:,}".format(product.sale_price)
+    # Pagination with 9 products per page
+    paginator = Paginator(products, 9)
+    page = request.GET.get('page',1)
+    products = paginator.get_page(page)
+    print('Products:', products)
+    return render(request, 'src/products.html', {'products': products})
 def test(request):
-    # Print static url
-    print('STATIC_URL:', settings.STATIC_URL)
-    return render(request, 'src/test.html')
+    products = list(Product.objects.all())
+    # Make money format with comma after every 3 digits
+    for product in products:
+        product.price = "{:,}".format(product.price)
+        product.sale_price = "{:,}".format(product.sale_price)
+    # Pagination with 9 products per page
+    paginator = Paginator(products, 9)
+    page = request.GET.get('page',1)
+    products = paginator.get_page(page)
+    print('Products:', products)
+    return render(request, 'src/test.html', {'products': products})
     

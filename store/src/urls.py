@@ -8,5 +8,6 @@ urlpatterns = [
     path('signin/', views.signin, name='signin'),
     path('signout/', views.signout, name='signout'),  
     path('product/<slug:product_name>-<int:product_id>', views.product, name='product'),
+    path('product', views.products, name='products'),
     path('test/', views.test, name='test'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
