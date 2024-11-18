@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+{% include "navbar.html" %}
+<div class="container py-5">
+    <div class="row">
+        <form method="POST" class="row g-4">
+            {% csrf_token %}
+        <!-- Customer Information and Payment -->
+        <div class="col-lg-7 mb-4">
+            <h4>Thông tin nhận hàng</h4>
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email" value="{{ user.email }}" disabled>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Họ và tên" required >
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">🇻🇳</span>
+                    <input type="text" name="phone_number" class="form-control" placeholder="Số điện thoại" required >
+                </div>
+            </div>
+            <div class="mb-3">
+                <input type="text" name="address" class="form-control" placeholder="Địa chỉ" required>
+            </div>
+            <div class="mb-4">
+                <textarea class="form-control" name="notes" rows="3" placeholder="Ghi chú (tùy chọn)"></textarea>
+            </div>
+
+            <h4>Thanh toán</h4>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="payment" id="momo" value="MOMO" checked>
+                <label class="form-check-label" for="momo">Thanh toán qua MoMo</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="payment" id="visa" value="VISA">
+                <label class="form-check-label" for="visa">Thanh toán qua Visa</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="payment" id="cod" value="COD">
+                <label class="form-check-label" for="cod">Thanh toán khi giao hàng (COD)</label>
+            </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-5">
+            <h4>Đơn hàng ({{total_product}} sản phẩm)</h4>
+            {% for cart in cart %}
+            <div class="card mb-3  product-card">
+                <div class="card-body">
+                    <!-- Product Information Section -->
+                    <div class="d-flex align-items-center mb-3">
+                        <!-- Product Image -->
+                        <img src="/media/{{cart.product.image1}}" alt="Product Image" class="img-thumbnail me-3" style="width: 80px; height: 80px;">
+                        
+                        <!-- Product Details -->
+                        <div class="flex-grow-1">
+                            <h6 class="mb-1">{{cart.product.name}}</h6>
+                        </div>
+                    </div>
+                
+                    <!-- Product Pricing, Quantity, and Total (in columns) -->
+                    <div class="d-flex flex-column">
+                        <!-- Price Field -->
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Giá:</span>
+                            {% if cart.product.sale_price %}
+                            <span class="currency">{{cart.product.sale_price}}</span>
+                            <input type="hidden" value="36500" class="product-price">
+                            {% else %}
+                            <span class="currency">{{cart.product.price}}</span>
+                            <input type="hidden" value="36500" class="product-price">
+                            {% endif %}
+                        </div>
+                
+                        <!-- Quantity Display -->
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Số lượng:</span>
+                            <span id="quantity-display">{{cart.quantity}}</span>
+                        </div>
+                        
+                        <!-- Total Price Field -->
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Tổng cộng:</span>
+                            <strong id="total-price-1" class="total-price currency">{{cart.total_price}}</strong>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+
+            <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Nhập mã giảm giá">
+                <button class="btn btn-outline-success mt-2">Áp dụng</button>
+            </div>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Tạm tính</span>
+                    <span class="currency">{{total_price}}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Phí vận chuyển</span>
+                    <span>-</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <strong>Tổng cộng</strong>
+                    <strong class="currency">{{total_price}}</strong>
+                </li>
+            </ul>
+            <button class="btn btn-success w-100">ĐẶT HÀNG</button>
+        </div>
+        </form>
+    </div>
+</div>
+<script src="{% static 'js/currency.js' %}">
+
+</script>
+
+{% include "footer.html" %}
+{% endblock %}
